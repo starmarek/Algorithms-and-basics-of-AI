@@ -1,30 +1,28 @@
 #ifndef SORT_ALGORITHMS_H
 #define SORT_ALGORITHMS_H
 
-#include <iostream>
-#include <cmath>
-#define M_LN2 0.69314718055994530942
+#include <algorithm>
 
 
-void merge_em(int *tab, int *tmp, int left, int midd, int right);
+void merge(int *tab, int *tmp, int left, int midd, int right);
 
 void mergesort(int *tab, int *tmp, int left, int right);
 
+int partition(int *tab, int left, int right);
+
 void quicksort(int *tab, int left, int right);
 
-void insertionsort(int *tab, int n);
+void insertionsort(int *tab, int left, int right);
 
-void heapify(int *tab, int left, int n);
+void heapsort(int *left, int *right);
 
-void heapsort(int *tab, int n);
+void introsort(int *tab, int *left, int *right, int maxdepth);
 
-void median_of_three(int *tab, int &left, int &right);
+void introWrap(int *tab, int *tmp, int left, int right, int maxdepth);
 
-int part_em(int *tab, int left, int right);
+void quickWrap(int *tab, int *tmp, int left, int right, int maxdepth);
 
-void intro_rec(int *tab, int n, int depth);
-
-void introsort(int *tab, int n);
+void mergeWrap(int *tab, int *tmp, int left, int right, int maxdepth);
 
 #endif
 
