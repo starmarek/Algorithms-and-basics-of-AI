@@ -1,28 +1,14 @@
-#ifndef SORT_ALGORITHMS_H
-#define SORT_ALGORITHMS_H
+#pragma once
 
 #include <algorithm>
 
+template<typename T>
+void introWrap(T *tab, T *tmp, int left, int right, int maxdepth);
 
-void merge(int *tab, int *tmp, int left, int midd, int right);
+template<typename T>
+void quickWrap(T *tab, T *tmp, int left, int right, int maxdepth);
 
-void mergesort(int *tab, int *tmp, int left, int right);
+template<typename T>
+void mergeWrap(T *tab, T *tmp, int left, int right, int maxdepth);
 
-int partition(int *tab, int left, int right);
-
-void quicksort(int *tab, int left, int right);
-
-void insertionsort(int *tab, int left, int right);
-
-void heapsort(int *left, int *right);
-
-void introsort(int *tab, int *left, int *right, int maxdepth);
-
-void introWrap(int *tab, int *tmp, int left, int right, int maxdepth);
-
-void quickWrap(int *tab, int *tmp, int left, int right, int maxdepth);
-
-void mergeWrap(int *tab, int *tmp, int left, int right, int maxdepth);
-
-#endif
 

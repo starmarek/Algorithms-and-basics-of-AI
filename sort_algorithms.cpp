@@ -6,7 +6,8 @@
 * MERGE SORT  *
 *             *
 **************/
-void merge(int *tab, int *tmp, int left, int midd, int right)
+template<typename T>
+void merge(T *tab, T *tmp, int left, int midd, int right)
 {
 	for (int i = left; i <= right; i++)
         tmp[i] = tab[i];
@@ -29,7 +30,8 @@ void merge(int *tab, int *tmp, int left, int midd, int right)
 }
 
 
-void mergesort(int *tab, int *tmp, int left, int right)
+template<typename T>
+void mergesort(T *tab, T *tmp, int left, int right)
 {
 	if (left < right)
 	{
@@ -41,7 +43,8 @@ void mergesort(int *tab, int *tmp, int left, int right)
 }
 
 
-void mergeWrap(int *tab, int *tmp, int left, int right, int maxdepth)
+template<typename T>
+void mergeWrap(T *tab, T *tmp, int left, int right, int maxdepth)
 {
     mergesort(tab, tmp, left, right);
 }
@@ -52,9 +55,10 @@ void mergeWrap(int *tab, int *tmp, int left, int right, int maxdepth)
 * QUICK SORT  *
 *             *
 **************/
-int partition(int *tab, int left, int right)
+template<typename T>
+int partition(T *tab, int left, int right)
 {
-    int pivot = tab[(left + right) / 2], i = left, j = right;
+    int pivot = tab[(left + right) / 2], i = left, j = right; //pivot selection is always middle
 
     while (true)
     {
@@ -71,7 +75,8 @@ int partition(int *tab, int left, int right)
 }
 
 
-void quicksort(int *tab, int left, int right)
+template<typename T>
+void quicksort(T *tab, int left, int right)
 {
     if (left < right)
     {
@@ -82,7 +87,8 @@ void quicksort(int *tab, int left, int right)
 }
 
 
-void quickWrap(int *tab, int *tmp, int left, int right, int maxdepth)
+template<typename T>
+void quickWrap(T *tab, T *tmp, int left, int right, int maxdepth)
 {
     quicksort(tab, left, right);
 }
@@ -93,7 +99,8 @@ void quickWrap(int *tab, int *tmp, int left, int right, int maxdepth)
 * INSERTION SORT *
 *                *
 ******************/
-void insertionsort(int *tab, int left, int right)
+template<typename T>
+void insertionsort(T *tab, int left, int right)
 {
 	for (int i = left + 1; i <= right; i++)
 	{
@@ -115,7 +122,8 @@ void insertionsort(int *tab, int left, int right)
 * HEAP SORT *
 *           *
 ************/
-void heapsort(int *left, int *right)
+template<typename T>
+void heapsort(T *left, T *right)
 {
 	std::make_heap(left, right);
 	std::sort_heap(left, right);
@@ -127,7 +135,8 @@ void heapsort(int *left, int *right)
 * INTRO SORT  *
 *             *
 **************/
-void introsort(int *tab, int *left, int *right, int maxdepth)
+template<typename T>
+void introsort(T *tab, T *left, T *right, int maxdepth)
 {
 	if ((right - left) < 16)
 		insertionsort(tab, left - tab, right - tab);
@@ -144,7 +153,17 @@ void introsort(int *tab, int *left, int *right, int maxdepth)
 }
 
 
-void introWrap(int *tab, int *tmp, int left, int right, int maxdepth)
+template<typename T>
+void introWrap(T *tab, T *tmp, int left, int right, int maxdepth)
 {
     introsort(tab, tab, tab + right , maxdepth);
 }
+
+
+template void introWrap<int>(int*, int*, int, int, int);
+template void mergeWrap<int>(int*, int*, int, int, int);
+template void quickWrap<int>(int*, int*, int, int, int);
+
+template void introWrap<double>(double*, double*, int, int, int);
+template void mergeWrap<double>(double*, double*, int, int, int);
+template void quickWrap<double>(double*, double*, int, int, int);
