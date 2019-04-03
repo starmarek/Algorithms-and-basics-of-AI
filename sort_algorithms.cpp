@@ -9,8 +9,7 @@
 template<typename T>
 void merge(T *tab, T *tmp, int left, int midd, int right)
 {
-	for (int i = left; i <= right; i++)
-        tmp[i] = tab[i];
+	for (int i = left; i <= right; i++) tmp[i] = tab[i];
 
 	int i = left;
 	int j = midd + 1;
@@ -18,15 +17,10 @@ void merge(T *tab, T *tmp, int left, int midd, int right)
 
 	while (i <= midd && j <= right)
 	{
-		if (tmp[i] < tmp[j])
-			tab[q++] = tmp[i++];
-
-		else
-			tab[q++] = tmp[j++];
+		if (tmp[i] < tmp[j]) tab[q++] = tmp[i++];
+		else tab[q++] = tmp[j++];
 	}
-
-	while (i <= midd)
-		tab[q++] = tmp[i++];
+	while (i <= midd) tab[q++] = tmp[i++];
 }
 
 
@@ -66,11 +60,8 @@ int partition(T *tab, int left, int right)
 
         while (tab[i] < pivot) i++;
 
-        if (i < j)
-            std::swap(tab[i++], tab[j--]);
-
-        else
-            return j;
+        if (i < j)  std::swap(tab[i++], tab[j--]);
+        else return j;
     }
 }
 
@@ -138,12 +129,8 @@ void heapsort(T *left, T *right)
 template<typename T>
 void introsort(T *tab, T *left, T *right, int maxdepth)
 {
-	if ((right - left) < 16)
-		insertionsort(tab, left - tab, right - tab);
-
-	else if (maxdepth == 0)
-		heapsort(left, right + 1);
-
+	if ((right - left) < 16) insertionsort(tab, left - tab, right - tab);
+	else if (maxdepth == 0) heapsort(left, right + 1);
 	else
     {
 		int pivot = partition(tab, left - tab, right - tab);

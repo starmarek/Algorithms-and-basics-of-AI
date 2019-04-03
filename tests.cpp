@@ -14,8 +14,7 @@ using SortFncPoint = void (*)(T*, T*, int, int, int);
 template<typename T>
 void print_table(T *tab, int n)
 {
-    for (int i = 0; i < n; i++)
-        std::cout << tab[i] << " ";
+    for (int i = 0; i < n; i++) std::cout << tab[i] << " ";
 }
 
 
@@ -38,8 +37,7 @@ void kill_table(T *table)
 template<typename T>
 void fill_random(T *tab, int n)
 {
-	for (int i = 0; i < n; i++)
-		tab[i] = rand() % 100000 + 1;
+	for (int i = 0; i < n; i++) tab[i] = rand() % 100000 + 1;
 }
 
 
